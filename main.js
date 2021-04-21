@@ -1,6 +1,5 @@
 const { Client, Collection } = require('discord.js');
 const { readdirSync } = require("fs");
-const { PREFIX, TOKEN } = require('./config');
 
 const client = new Client();
 ["commands", "cooldowns"].forEach(x => client[x] = new Collection());
