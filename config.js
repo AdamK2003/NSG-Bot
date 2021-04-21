@@ -1,2 +1,0 @@
-exports.TOKEN = 'ODM0MzU3MzA5OTQwOTU3MTg5.YH_tzA.W-XJtwTCLUBT_PX-JZODRV2q7No';
-exports.PREFIX = '?';
