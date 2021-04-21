@@ -1,6 +1,5 @@
 const { MessageEmbed } = require("discord.js");
 const { readdirSync } = require("fs");
-const { PREFIX } = require('/Users/Pondi Média/Desktop/Coding/Code/discord.js/NSG Bot V1/config');
 const categoryList = readdirSync('./commands');
 
 module.exports.run =(client, message, args) => {
@@ -9,7 +8,7 @@ module.exports.run =(client, message, args) => {
    if (!args.length) {
       const embed = new MessageEmbed()
       .setColor("#ffff00")
-      .addField("Commands List", `A list of all commnds available on the server with an help on how to use them!\nFor more informations about a specific command please type \`${PREFIX}help (Command Name)\``)
+      .addField("Commands List", `A list of all commnds available on the server with an help on how to use them!\nFor more informations about a specific command please type \`${process.env.PREFIX}help (Command Name)\``)
 
       for (const category of categoryList) {
          embed.addField(
@@ -26,7 +25,7 @@ module.exports.run =(client, message, args) => {
       .setColor("#f20000")
       .setTitle(`\`${command.help.name}\``)
       .addField("Decription:", `${command.help.description} (cd: ${command.help.cooldown}s)`)
-      .addField("How to use:", command.help.usage ? `${PREFIX}${command.help.name} ${command.help.usage}` : `${PREFIX}${command.help.name}`, true)
+      .addField("How to use:", command.help.usage ? `${process.env.PREFIX}${command.help.name} ${command.help.usage}` : `${process.env.PREFIX}${command.help.name}`, true)
 
       if (command.help.aliases.length > 1) embed.addField('Alias', `${command.help.aliases.join(', ')}`, true);
       return message.channel.send(embed);
