@@ -20,8 +20,8 @@ const loadCommands = (dir = "./commands/") => {
 loadCommands();
 
 client.on('message', message => {
-  if (!message.content.startsWith(PREFIX) || message.author.bot) return;
-  const args = message.content.slice(PREFIX.length).split(/ +/);
+  if (!message.content.startsWith(process.env.PREFIX) || message.author.bot) return;
+  const args = message.content.slice(process.env.PREFIX.length).split(/ +/);
   //agrs coupe la commande en plusieurs parti a partir de " " ( !pfp @test @test& = @test, @test1)
   const commandName = args.shift().toLowerCase();
   // va garder seulement la command (!pfp @test @test& = @test, @test1 = !pfp)
@@ -34,7 +34,7 @@ client.on('message', message => {
   if (command.help.args && !args.length) {
     let noArgsReply = `Please type the command in the right way ${message.author}`;
 
-    if (command.help.usage) noArgsReply += `\nUsage: ${PREFIX}${command.help.name} ${command.help.usage}`
+    if (command.help.usage) noArgsReply += `\nUsage: ${process.env.PREFIX}${command.help.name} ${command.help.usage}`
 
     return message.channel.send(noArgsReply);
   }
@@ -68,9 +68,9 @@ client.on('ready', () => {
     client.user.setPresence({
       status: 'online',
       activity: {
-          name: "My prefix is " + '"?"',
+          name: "My process.env.prefix is " + '" ?"',
           type: "WATCHING"
       }
   });
 })
-client.login(TOKEN);
+client.login(process.env.TOKEN);
