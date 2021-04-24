@@ -1,9 +1,8 @@
 module.exports.run =(client, message, args) => {
-      let nick = args.slice(0).join(' ');
 
       if(!nick) return(message.channel.send(`Please specify which nickname you want! ${message.author}`))
 
-      message.author.setNickname(nick).then(async m => {
+     message.member.setNickname(args[1]).then(async m => {
          await message.channel.send(`${message.author} nickname changed to "${nick}"`)
       })
    };
