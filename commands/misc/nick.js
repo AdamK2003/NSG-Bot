@@ -1,7 +1,7 @@
 module.exports.run =(client, message, args) => {
    const user = message.mentions.users.first();
       const target = message.guild.member(user);
-      let nick = args.slice(0).join(' ');
+      let nick = args.slice(1).join(' ');
 
       target.setNickname(nick).then(async m => {
          await message.channel.send(`${target} nickname changed to "${nick}"`)
