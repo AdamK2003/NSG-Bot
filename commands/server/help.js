@@ -8,7 +8,7 @@ module.exports.run =(client, message, args) => {
    if (!args.length) {
       const embed = new MessageEmbed()
       .setColor("#ffff00")
-      .addField("Commands List", `A list of all commnds available on the server with an help on how to use them!\nFor more informations about a specific command please type \`${process.env.PREFIX}help (Command Name)\``)
+      .addField("Commands List", `A list of all commands available on the server with an help on how to use them!\nFor more informations about a specific command please type \`${process.env.PREFIX}help (Command Name)\``)
 
       for (const category of categoryList) {
          embed.addField(
