@@ -1,6 +1,5 @@
 module.exports.run =(client, message, args) => {
-     message.channel.send("fucking nick command cjizbizcvyzvfzvjfvjdcvjzcvgvgezvegz efgbydushdgfgshigefzdgsfg");
-      })
+     message.channel.send("**fucking nick command cjizbizcvyzvfzvjfvjdcvjzcvgvgezvegz efgbydushdgfgshigefzdgsfg **");
    };
 
 
@@ -11,6 +10,6 @@ module.exports.run =(client, message, args) => {
     description: "Nick yourself or someone",
     usage: "(wyw)",
     cooldown: 10,
-    args: true
+    args: false
  };     
  
