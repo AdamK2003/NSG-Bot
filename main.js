@@ -67,7 +67,7 @@ client.on('ready', () => {
     client.user.setPresence({
       status: 'online',
       activity: {
-          name: "My process.env.prefix is " + '" ?"',
+          name: "My Prefix is " + '" ?"',
           type: "WATCHING"
       }
   });
