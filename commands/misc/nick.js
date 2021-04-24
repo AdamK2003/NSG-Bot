@@ -1,8 +1,5 @@
 module.exports.run =(client, message, args) => {
-     let nick = message.content.substring(5);
-
-     message.member.setNickname(nick).then(async m => {
-         await message.channel.send(`${message.author} nickname changed to ${nick}`);
+     message.channel.send("fucking nick command cjizbizcvyzvfzvjfvjdcvjzcvgvgezvegz efgbydushdgfgshigefzdgsfg");
       })
    };
 
