@@ -7,11 +7,9 @@ module.exports.run =(client, message, args) => {
       let roleName = args.slice(1).join(' ');
       let role = message.guild.roles.cache.find(r => r.name === roleName);
 
-       // If the author don't have perm
+       if(!roleName) return(message.channel.send(`Please specify which role you want to add to ${user} by saying the role name.`));
        if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send('You can\'t use that!');
-       // If the bot don't have perm
        if(!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send('I don\'t have the right permissions.');
-       // If the bot don't find the user
        if(!target) return message.channel.send('Can\'t seem to find this user.');
 
        const embed = new MessageEmbed()
