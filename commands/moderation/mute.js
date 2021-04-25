@@ -9,11 +9,8 @@ module.exports.run =(client, message, args) => {
 
       let role = message.guild.roles.cache.find(r => r.name === "muted");
 
-       // If the author don't have perm
        if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send('You can\'t use that!');
-       // If the bot don't have perm
        if(!message.guild.me.hasPermission("MANAGE_MESSAGES")) return message.channel.send('I don\'t have the right permissions.');
-       // If the bot don't find the user
        if(!target) return message.channel.send('Can\'t seem to find this user.');
 
        const embed = new MessageEmbed()
