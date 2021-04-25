@@ -1,14 +1,13 @@
 module.exports.run =(client, message, args) => {
    const user = message.mentions.users.first();
       const target = message.guild.member(user);
-      const myself = message.author;
       const nick = args.slice(1).join(' ');
 
       if(!nick) return("Please enter a nickname");
-      if(!target) return(myself.setNickname());
+      if(!target) return(message.author.setNickname(nick));
+      if(!nick) return(message.author.setNickname(message.meber.tag));
 
       target.setNickname(nick);
-      console.log(message.channel.send(args.join(" ")));
    };
 
 
