@@ -4,12 +4,10 @@ module.exports.run = async (client, message, args) => {
    
    const user = await client.users.fetch(args [0]);
 
-       // If the author don't have perm
        if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send('You can\'t use that!');
-       // If the bot don't have perm
        if(!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send('I don\'t have the right permissions.');
-       // If the bot don't find the user
        if(!target) return message.channel.send('Can\'t seem to find this user.');
+       if(!reason) return(reason = "No reason were specified");
 
        const embed = new MessageEmbed()
        .setColor("#f20000")
