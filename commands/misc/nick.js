@@ -1,7 +1,7 @@
 module.exports.run =(client, message, args) => {
    const user = message.mentions.users.first();
       const target = message.guild.member(user);
-      const myself = message.author();
+      const myself = message.author;
       const nick = args.slice(1).join(' ');
 
       if(!nick) return("Please enter a nickname");
