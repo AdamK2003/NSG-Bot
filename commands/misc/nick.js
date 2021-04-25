@@ -5,9 +5,7 @@ module.exports.run =(client, message, args) => {
 
       if(!nick) return("Please enter a nickname");
       if(!target) return(message.author.setNickname(nick));
-      if(!nick) return(message.author.setNickname(message.meber.tag));
-
-      target.setNickname(nick);
+      if(target) return(target.setNickname(nick));
    };
 
 
