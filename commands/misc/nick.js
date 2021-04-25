@@ -16,7 +16,7 @@ module.exports.run =(client, message, args) => {
     aliases: ['nick'],
     category: 'misc',
     description: "Nick yourself or someone",
-    usage: "(wyw)",
+    usage: "(mention) (nickname)",
     cooldown: 10,
     args: true
  };     
