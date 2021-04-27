@@ -31,7 +31,7 @@ client.on('message', message => {
   if (!command) return;
 
   if (command.help.args && !args.length) {
-    let noArgsReply = `Please type the command in the right way ${message.author}`;
+    let noArgsReply = `${message.author} This command requires arguments`;
 
     if (command.help.usage) noArgsReply += `\nUsage: ${process.env.PREFIX}${command.help.name} ${command.help.usage}`
 
