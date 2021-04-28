@@ -6,7 +6,8 @@
   "author": "Max or Maxime :)",
   "license": "MIT",
   "dependencies": {
-    "discord.js": "^12.5.3"
+    "discord.js": "^12.5.3",
+    "mongoose": "^5.12.6"
   },
   "scripts": {
     "start": "node main.js"
