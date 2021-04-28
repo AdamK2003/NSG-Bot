@@ -4,7 +4,7 @@ const { readdirSync } = require("fs");
 const client = new Client();
 ["commands", "cooldowns"].forEach(x => client[x] = new Collection());
 
-client.mongoose = require('./commands/server/mongoose');
+client.mongoose = require('./functions/mongoose');
 
 const loadCommands = (dir = "./commands/") => {
   readdirSync(dir).forEach(dirs => {
