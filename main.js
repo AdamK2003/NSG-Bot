@@ -4,6 +4,8 @@ const { readdirSync } = require("fs");
 const client = new Client();
 ["commands", "cooldowns"].forEach(x => client[x] = new Collection());
 
+client.mongoose = require('./commands/server/mongoose');
+
 const loadCommands = (dir = "./commands/") => {
   readdirSync(dir).forEach(dirs => {
     const commands = readdirSync (`${dir}/${dirs}/`).filter(files => files.endsWith(".js"));
@@ -60,6 +62,8 @@ client.on('message', message => {
   setTimeout(() => tStamps.delete(message.author.id), cdAmount);
 
   command.run(client, message, args);
+
+  client.mongoose.init();
 });
 
 client.on('ready', () => {
