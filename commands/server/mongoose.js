@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-module.exprts = {
+module.exports = {
    init: () => {
       const mongOptions = {
          useNewUrlParser: true,
