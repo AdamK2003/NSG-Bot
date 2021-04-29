@@ -23,7 +23,6 @@ module.exports.run = async (client, message, args) => {
 
          await message.channel.bulkDelete(messages).then(async m => {
             await message.channel.send(embed);
-            client.channels.cache.get("823962434703327253").send(embed);
             message.delete();
          })
 };
