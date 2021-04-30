@@ -12,12 +12,12 @@ module.exports.run =(client, message, args) => {
    };
 
 
- module.exports.help = {
-    name: "nick",
-    aliases: ['nick'],
-    category: 'misc',
-    description: "Nick yourself or someone",
-    usage: "(mention) (nickname)",
-    cooldown: 10,
-    args: true
- };     
+module.exports.help = {
+   name: "nick",
+   aliases: ['nick'],
+   category: 'misc',
+   description: "Nick yourself or someone",
+   usage: "(mention) (nickname)",
+   cooldown: 10,
+   args: true
+};     
