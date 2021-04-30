@@ -1,11 +1,16 @@
 module.exports.run =(client, message, args) => {
-   const user = message.mentions.users.first();
-      const target = message.guild.member(user);
+   const target = message.mentions.users.first();
+      const targetR = message.guild.member(target);
       const nick = args.slice(1).join(' ');
 
-      if(!nick) return("Please enter a nickname");
-      if(!target) return(message.author.setNickname(nick));
-      if(target) return(target.setNickname(nick));
+      if(!target) {
+         message.author.setNickname(nick);
+         message.channel.send(`${message.author} changed his nickname to **${nick}**!`);
+      } else {
+         target.setNickname(nick);
+         targetR.setNickname(nick);
+         message.channel.send(`${message.author} changed ${target} nickname to **${nick}**!`);
+      }
    };
 
 
@@ -18,4 +23,3 @@ module.exports.run =(client, message, args) => {
     cooldown: 10,
     args: true
  };     
- 
