@@ -32,7 +32,7 @@ module.exports.help = {
    aliases: ['purge'],
    category: 'moderation',
    description: "Delete a certain amount of messages (between 1 and 100 at a time)",
-   usage: "(amount)",
+   usage: "<amount>",
    cooldown: 0,
    args: true
 };     

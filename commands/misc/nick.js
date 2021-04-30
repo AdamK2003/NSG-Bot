@@ -3,7 +3,7 @@ module.exports.run =(client, message, args) => {
       const nick = args.slice(1).join(' ');
 
       if(!target) {
-         message.author.setNickname(nick);
+         message.member.setNickname(nick);
          message.channel.send(`${message.author} changed his nickname to **${nick}**!`);
       } else {
          target.setNickname(nick);
@@ -17,7 +17,7 @@ module.exports.help = {
    aliases: ['nick'],
    category: 'misc',
    description: "Nick yourself or someone",
-   usage: "(mention) (nickname)",
+   usage: "[mention] <nickname>",
    cooldown: 10,
    args: true
 };     

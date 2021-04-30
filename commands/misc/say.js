@@ -9,7 +9,7 @@ module.exports.help = {
    aliases: ['say', 'repeat'],
    category: 'misc',
    description: "make the bot say what you said",
-   usage: "(wyw)",
+   usage: "<text>",
    cooldown: 10,
    args: true
 };     
