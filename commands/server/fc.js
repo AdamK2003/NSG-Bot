@@ -7,7 +7,7 @@ mongoose.connect(db)
 
 // const get = require('get-value')
 
-const Report = require(process.env.ROOTDIR + '/models/fcs.js')
+const FC = require(process.env.ROOTDIR + '/models/fcs.js')
 
 const Discord = require('discord.js')
 
@@ -24,9 +24,9 @@ module.exports.help = {
 module.exports.run = async (client, message, args) => {
     let rUser = message.mentions.members.first();
     if(!rUser) return message.channel.send("Invalid user!")
-fcs.find({ userID: rUser.id, guildID: message.guild.id }, (err, arr) => {
+FC.find({userID: rUser.id}, (err, arr) => {
 
-message.channel.send(`Friend code of ${rUser}` + arr[i].fc)
+message.channel.send(`Friend code of ${rUser}` + arr[0].fc)
 })
 return
 }
