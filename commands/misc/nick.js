@@ -1,13 +1,14 @@
 module.exports.run =(client, message, args) => {
-   const target = message.mentions.members.first();
-      const nick = args.slice(1).join(' ');
+   let target = message.mentions.members.first();
 
       if(!target) {
+         let nick = args.slice(0).join(' ');
          message.member.setNickname(nick);
          message.channel.send(`${message.author} changed his nickname to **${nick}**!`);
       } else {
+         let nick = args.slice(1).join(' ');
          target.setNickname(nick);
-         message.channel.send(`${message.author} changed ${target} nickname to **${nick}**!`);
+         message.channel.send(`${message.author} changed ${target}'s nickname to **${nick}**!`);
       }
    };
 
