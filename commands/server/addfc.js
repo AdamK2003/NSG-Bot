@@ -14,7 +14,7 @@ const Discord = require('discord.js')
 module.exports.run =(client, message, args) => {
 
    let rUser = message.author;
-   let fc = args.slice(1).join(" ")
+   let fc = args.slice(0).join(" ")
    if(!fc) return message.reply("Please supply a friend code.")
 
    const fcs = new FC({
