@@ -1,7 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
-   if (isNaN(args[0]) || (args[0] < 1 || args[0] > 100)) return message.channel.send(`${message.author} Please specify a number beteen 1 and 100!`);
+   if (isNaN(args[0]) || (args[0] < 1 || args[0] > 100)) return message.channel.send(`Please ${message.author},specify a number beteen 1 and 100!`);
 
    const messages = await message.channel.messages.fetch({
       limit: Math.min(args[0], 100),
@@ -22,7 +22,6 @@ module.exports.run = async (client, message, args) => {
 
          await message.channel.bulkDelete(messages).then(async m => {
             await message.channel.send(embed);
-            client.channels.cache.get("823962434703327253").send(embed);
             message.delete();
          })
 };
