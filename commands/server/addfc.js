@@ -15,11 +15,11 @@ module.exports.run =(client, message, args) => {
 
    let rUser = message.author;
    let fc = args.slice(1).join(" ")
-   if(!fc) return message.reply("Please supply a reason.")
+   if(!fc) return message.reply("Please supply a friend code.")
 
    const fcs = new FC({
        _id: mongoose.Types.ObjectId(),
-       username: messager.author.tag,
+       username: message.author.tag,
        userID: message.author.id,
        fc: fc,
        guildID: message.guild.id,
