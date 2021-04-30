@@ -4,11 +4,13 @@ module.exports.run =(client, message, args) => {
       if(!target) {
          let nick = args.slice(0).join(' ');
          message.member.setNickname(nick);
-         message.channel.send(`${message.author} changed his nickname to **${nick}**!`);
+         if(nick) return message.channel.send(`${message.author} changed his nickname to **${nick}**!`);
+         return message.channel.send(`${message.author} reset their nickname!`)
       } else {
          let nick = args.slice(1).join(' ');
          target.setNickname(nick);
-         message.channel.send(`${message.author} changed ${target}'s nickname to **${nick}**!`);
+         if(nick) return message.channel.send(`${message.author} changed ${target}'s nickname to **${nick}**!`);
+         return message.channel.send(`${message.author} reset ${target}'s nickname!`)
       }
    };
 
