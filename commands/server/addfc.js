@@ -5,7 +5,7 @@ const db = process.env.DB
 
 mongoose.connect(db)
 
-const fc = require(process.env.ROOTDIR + '/models/setfc.js')
+const fc = require(process.env.ROOTDIR + '/models/fcs.js')
 
 
 const Discord = require('discord.js')
