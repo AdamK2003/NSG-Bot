@@ -19,11 +19,8 @@ module.exports.run =(client, message, args) => {
 
    const fcs = new FC({
        _id: mongoose.Types.ObjectId(),
-       username: message.author.tag,
        userID: message.author.id,
-       fc: fc,
-       guildID: message.guild.id,
-       time: message.createdAt.toUTCString()
+       fc: fc
    })
    
    fcs.save()
