@@ -22,7 +22,7 @@ module.exports.help = {
 module.exports.run = async (client, message, args) => {
     await message.delete()
     if(!message.member.hasPermission(['MANAGE_MESSAGES'], true, true)) return message.channel.send("Nope!")
-    let id = args[1]
+    let id = args[0]
     if(!id) return message.channel.send("No ID provided!")
     if(id.length != 24) return message.channel.send("Invalid ID!")
     Warn.deleteOne({ _id: id }, (err, res) => {
