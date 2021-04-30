@@ -1,6 +1,5 @@
 module.exports.run =(client, message, args) => {
-   const target = message.mentions.users.first();
-      const targetR = message.guild.member(target);
+   const target = message.mentions.members.first();
       const nick = args.slice(1).join(' ');
 
       if(!target) {
@@ -8,7 +7,6 @@ module.exports.run =(client, message, args) => {
          message.channel.send(`${message.author} changed his nickname to **${nick}**!`);
       } else {
          target.setNickname(nick);
-         targetR.setNickname(nick);
          message.channel.send(`${message.author} changed ${target} nickname to **${nick}**!`);
       }
    };
