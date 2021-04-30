@@ -38,6 +38,6 @@ module.exports.help = {
    category: 'server',
    description: "Give a list of all commands available on the server",
    usage: "(Command Name)",
-   cooldown: 6,
+   cooldown: 0,
    args: false
 };     
