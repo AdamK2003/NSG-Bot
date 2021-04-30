@@ -27,7 +27,7 @@ module.exports.run = async (client, message, args) => {
     }
     let rUser = message.mentions.members.first();
     if(!rUser) return message.reply("Invalid user!")
-    let rReason = args.slice(2).join(" ")
+    let rReason = args.slice(1).join(" ")
     if(!rReason) return message.reply("Please supply a reason.")
 
     const report = new Warn({
