@@ -67,11 +67,16 @@ client.on('message', message => {
 });
 
 client.on('ready', () => {
+    if(process.env.ENVIRONMENT == "testing") {
+    const activityName = "TESTING MODE | My Prefix is " + process.env.PREFIX
+  } else {
+    const activityName = "My Prefix is " + process.env.PREFIX
+  }
     console.log(`Logged in as ${client.user.tag}!`);
     client.user.setPresence({
       status: 'online',
       activity: {
-          name: "My Prefix is " + '" ?"',
+          name: activityName,
           type: "WATCHING"
       }
   });

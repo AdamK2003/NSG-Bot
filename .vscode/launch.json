@@ -12,7 +12,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\main.js",
-            "env": {"ROOTDIR": "${workspaceFolder}"},
+            "env": {"ROOTDIR": "${workspaceFolder}", "ENVIRONMENT": "testing"},
             "envFile": "${workspaceFolder}/.env"
         }
     ]
