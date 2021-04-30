@@ -23,5 +23,5 @@ module.exports.help = {
    description: "Nick yourself or someone",
    usage: "[mention] <nickname>",
    cooldown: 10,
-   args: true
+   args: false
 };     
