@@ -7,7 +7,7 @@ mongoose.connect(db)
 
 // const get = require('get-value')
 
-const Report = require(process.env.ROOTDIR + '/models/fc.js')
+const Report = require(process.env.ROOTDIR + '/models/fcs.js')
 
 const Discord = require('discord.js')
 
