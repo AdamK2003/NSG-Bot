@@ -4,7 +4,7 @@ const db = process.env.DB
 
 mongoose.connect(db)
 
-const get = require('get-value')
+// const get = require('get-value')
 
 const Report = require(process.env.ROOTDIR + '/models/warn.js')
 
@@ -37,10 +37,10 @@ if(arr.length == 0) {
     var i;
     for(i = 0; i < arr.length; i++) {
         embed.addField('\u200b', '\u200b')
-        embed.addField("Warned by " + get(arr[i], 'reportedBy'), "Reason: " + get(arr[i], 'reason'))
+        embed.addField("Warned by " + arr[i].reportedBy, "Reason: " + arr[i].reason)
         embed.addFields(
-            { name: "Time", value: get(arr[i], 'time'), inline: true },
-            { name: "Warn ID", value: get(arr[i], '_id'), inline: true }
+            { name: "Time", value: arr[i].time, inline: true },
+            { name: "Warn ID", value: arr[i]._id, inline: true }
         )
     }
 }
