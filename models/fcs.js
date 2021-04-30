@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const fcsSchema = new friendcode({
+const fcsSchema = new FC({
        _id: mongoose.Types.ObjectId(),
        username: messager.author.tag,
        userID: message.author.id,
