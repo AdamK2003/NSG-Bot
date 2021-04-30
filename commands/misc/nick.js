@@ -6,6 +6,7 @@ module.exports.run =(client, message, args) => {
          message.member.setNickname(nick);
          message.channel.send(`${message.author} changed his nickname to **${nick}**!`);
       } else {
+         const nick = args.slice(0).join(' ');
          target.setNickname(nick);
          message.channel.send(`${message.author} changed ${target} nickname to **${nick}**!`);
       }
