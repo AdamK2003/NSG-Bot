@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const fcsSchema = new FC({
+const fcsSchema = mongoose.Schema({
        _id: mongoose.Types.ObjectId(),
        username: messager.author.tag,
        userID: message.author.id,
@@ -9,4 +9,4 @@ const fcsSchema = new FC({
        time: message.createdAt.toUTCString()
    });
 
-module.exports = mongoose.model("Fc", reportSchema);
+module.exports = mongoose.model("FC", fcsSchema);
