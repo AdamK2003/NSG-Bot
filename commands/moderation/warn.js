@@ -1,37 +1,50 @@
-const { MessageEmbed } = require("discord.js");
+const mongoose = require('mongoose')
 
-module.exports.run =(client, message, args) => {
-   const user = message.mentions.users.first();
-   const target = message.guild.member(user);
-      
-   let reason = args.slice(1).join(' ');
-      if(!reason) reason = "None";
-
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send('You can\'t use that!');
-    if(!message.guild.me.hasPermission("MANAGE_MESSAGES")) return message.channel.send('I don\'t have the right permissions.');
-    if(!target) return message.channel.send('Can\'t seem to find this user.');
-    if(!reason) return(reason = "No reason were specified");
+const db = process.env.DB
 
 
-    const embed = new MessageEmbed()
-       .setColor("#f20000")
-       .setAuthor(`By ${message.author.tag}`, message.author.displayAvatarURL())
-       .addField(`Warn`, `${message.author.tag} warned ${target.tag}`)
-       .addField(`Reason:`, `${reason}`)
-       .setTimestamp()
+mongoose.connect(db)
 
-      message.channel.send(embed).then(async m => {
-         await client.channels.cache.get("823962434703327253").send(embed);
-      })
-};
+const Warn = require(process.env.ROOTDIR + '/models/warn.js')
 
+
+const Discord = require('discord.js')
 
 module.exports.help = {
-   name: "warn",
-   aliases: ['warn'],
-   category: 'moderation',
-   description: "Warn a user",
-   usage: "(member) (user)",
-   cooldown: 0,
-   args: true
+    name: "warn",
+    aliases: ['warn'],
+    category: 'moderation',
+    description: "Warn someone.",
+    usage: "<mention> <reason>",
+    cooldown: 0,
+    args: true
 };     
+
+module.exports.run = async (client, message, args) => {
+    await message.delete()
+    if(!message.member.hasPermission(['MANAGE_MESSAGES'], true, true )) {
+        return message.channel.send("Nope!");
+    }
+    let rUser = message.mentions.members.first();
+    if(!rUser) return message.reply("Invalid user!")
+    let rReason = args.slice(1).join(" ")
+    if(!rReason) return message.reply("Please supply a reason.")
+
+    const report = new Warn({
+        _id: mongoose.Types.ObjectId(),
+        username: rUser.user.tag,
+        userID: rUser.id,
+        reason: rReason,
+        reportedBy: message.author.tag,
+        reportedByID: message.author.id,
+        guildID: message.guild.id,
+        time: message.createdAt.toUTCString()
+    })
+
+report.save()
+.then(result => console.log(result))
+.catch(err => console.log(err));
+
+message.reply('Warned ' + rUser.user.tag + '! Reason: '+rReason)
+
+}
