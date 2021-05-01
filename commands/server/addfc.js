@@ -27,7 +27,7 @@ module.exports.run =(client, message, args) => {
 .then(result => console.log(result))
 .catch(err => console.log(err));
 
-   message.reply(`${message.author} set their fc to \`${fc}\``);
+   message.channel.send(`${message.author} set their fc to \` ${fc}\``);
    message.delete();
 };
 
@@ -36,7 +36,7 @@ module.exports.help = {
    aliases: ['addfc', 'setfc'],
    category: 'fc',
    description: "Set the friend code of message author",
-   usage: " ",
+   usage: "<fc here>",
    cooldown: 6,
    args: true
 };     
