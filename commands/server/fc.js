@@ -27,7 +27,7 @@ module.exports.run = async (client, message, args) => {
         let rUser = message.member
     }
     FC.find({userID: rUser.id}, (err, arr) => {
-        if(!arr) return message.channel.send(`${rUser.tag} doesn't have a friend code set!`)
+        if(!arr[0]) return message.channel.send(`${rUser.tag} doesn't have a friend code set!`)
         message.channel.send(`Friend code of ${rUser}: ` + arr[0].fc);
     })
 return
