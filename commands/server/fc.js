@@ -22,13 +22,10 @@ module.exports.help = {
 
 module.exports.run = async (client, message, args) => {
     let rUser = message.mentions.members.first();
-    if(!rUser) return message.channel.send("Invalid user!")
-    try {
-        FC.find({userID: rUser.id}, (err, arr) => {
-            message.channel.send(`Friend code of ${rUser} ` + arr[0].fc);
-        })
-    } catch(err) {
-        message.channel.send(`An error ocurred,this might be because ${rUser.tag} don't have a fc set!`);
-    }
+    if(!rUser) let rUser = message.member
+    FC.find({userID: rUser.id}, (err, arr) => {
+        if(!arr) return message.channel.send(`${rUser.tag} doesn't have a friend code set!`)
+        message.channel.send(`Friend code of ${rUser}: ` + arr[0].fc);
+    })
 return
 }
