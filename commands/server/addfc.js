@@ -17,6 +17,9 @@ module.exports.run =(client, message, args) => {
    let fc = args.slice(0).join(" ")
    if(!fc) return message.reply("Please supply a friend code.")
 
+FC.find({ userID: user.id }, (err, arr) => {
+
+ if(arr.length == 0) {
    const fcs = new FC({
        _id: mongoose.Types.ObjectId(),
        userID: message.author.id,
@@ -27,9 +30,19 @@ module.exports.run =(client, message, args) => {
 .then(result => console.log(result))
 .catch(err => console.log(err));
 
+      return
+    }
+
+    let dbID = get(arr[0], '_id')
+
+FC.update({ _id: dbID }, { fc: fc } , err => { // replace exp: expVal with fc: fc
+    if(err) return console.log("An error has occurred when updating DB entry!\n\n" + err)
+    })
+
    message.channel.send(`${message.author} set their fc to \` ${fc}\``);
    message.delete();
-};
+});
+}
 
 module.exports.help = {
    name: "addfc",
