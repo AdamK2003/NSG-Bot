@@ -19,7 +19,7 @@ module.exports.run =(client, message, args) => {
 
 FC.find({ userID: user.id }, (err, arr) => {
 
- if(arr.length == 0) {
+ if(!arr[0]) {
    const fcs = new FC({
        _id: mongoose.Types.ObjectId(),
        userID: message.author.id,
