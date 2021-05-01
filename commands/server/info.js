@@ -33,5 +33,5 @@ module.exports.help = {
          description: "give info about a user",
          usage: "(member)",
          cooldown: 10,
-         args: true
+         args: false
       };     
