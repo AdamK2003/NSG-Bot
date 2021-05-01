@@ -17,7 +17,7 @@ module.exports.run =(client, message, args) => {
    let fc = args.slice(0).join(" ")
    if(!fc) return message.reply("Please supply a friend code.")
 
-FC.find({ userID: user.id }, (err, arr) => {
+FC.find({ userID: message.author.id }, (err, arr) => {
 
  if(!arr[0]) {
    const fcs = new FC({
