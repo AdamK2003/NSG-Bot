@@ -30,7 +30,10 @@ FC.find({ userID: message.author.id }, (err, arr) => {
 .then(result => console.log(result))
 .catch(err => console.log(err));
 
-      return
+   message.channel.send(`${message.author} set their fc to \`${fc}\``);
+   message.delete();
+
+   return
     }
 
     let dbID = arr[0]._id
