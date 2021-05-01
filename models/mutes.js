@@ -8,7 +8,7 @@ const mutesSchema = mongoose.Schema({
             MutedBy: String,
             MutedByID: String,
             guildID: String,
-            time: message.createdAt.toUTCString() 
+            time: String
    });
 
 module.exports = mongoose.model("FC", fcsSchema);
