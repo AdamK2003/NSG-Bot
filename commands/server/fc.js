@@ -18,7 +18,7 @@ module.exports.help = {
     description: "Check someone's fc",
     usage: "<mention>",
     cooldown: 0,
-    args: true
+    args: false
 };   
 
 module.exports.run = async (client, message, args) => {
