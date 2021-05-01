@@ -5,7 +5,7 @@ const db = process.env.DB
 
 mongoose.connect(db)
 
-const Mute = require(process.env.ROOTDIR + '/models/fcs.js')
+const Mute = require(process.env.ROOTDIR + '/models/mutes.js')
 
 
 const Discord = require('discord.js')
