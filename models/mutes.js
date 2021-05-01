@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const mutesSchema = mongoose.Schema({
-            _id: mongoose.Types.ObjectId(),
+            _id: mongoose.Types.ObjectId,
             username: String,
             userID: String,
             reason: String,
