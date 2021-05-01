@@ -39,7 +39,7 @@ FC.update({ _id: dbID }, { fc: fc } , err => { // replace exp: expVal with fc: f
     if(err) return console.log("An error has occurred when updating DB entry!\n\n" + err)
     })
 
-   message.channel.send(`${message.author} set their fc to \` ${fc}\``);
+   message.channel.send(`${message.author} set their fc to \`${fc}\``);
    message.delete();
 });
 }
