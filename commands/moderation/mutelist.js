@@ -1,4 +1,3 @@
-
 const mongoose = require('mongoose')
 
 const db = process.env.DB
@@ -7,27 +6,28 @@ mongoose.connect(db)
 
 // const get = require('get-value')
 
-const Mute = require(process.env.ROOTDIR + '/models/mutes.js')
+const Mutes = require(process.env.ROOTDIR + '/models/mutes.js')
 
 const Discord = require('discord.js')
 
 module.exports.help = {
-    name: "mutelist",
-    aliases: ['mutelist','ml'],
+    name: "getmutes",
+    aliases: ['getmutes', 'mutes'],
     category: 'Mutes',
-    description: "Check someone's mute history",
+    description: "Check someone's mutes.",
     usage: "<mention>",
     cooldown: 0,
     args: true
 };   
 
 module.exports.run = async (client, message, args) => {
+    await message.delete()
+    if(!message.member.hasPermission(['MANAGE_MESSAGES'], true, true)) return message.channel.send("Nope!")
     let rUser = message.mentions.members.first();
+    if(!rUser) return message.channel.send("Invalid user!")
+Mutes.find({ userID: rUser.id, guildID: message.guild.id }, (err, arr) => {
 
-    mutes.find({userID: rUser.id}, (err, arr) => {
-        if(!arr[0]) return message.channel.send(`This user was never muted!`)
-
-        const embed = new Discord.MessageEmbed()
+const embed = new Discord.MessageEmbed()
     .setColor("RANDOM")
     .setTitle("Mutes for " + rUser.user.tag);
 
@@ -44,8 +44,7 @@ if(arr.length == 0) {
         )
     }
 }
-
-        message.channel.send(embed);
-    })
+return message.channel.send(embed)
+})
 return
 }
