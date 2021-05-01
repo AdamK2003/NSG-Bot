@@ -33,7 +33,7 @@ FC.find({ userID: message.author.id }, (err, arr) => {
       return
     }
 
-    let dbID = get(arr[0], '_id')
+    let dbID = arr[0]._id
 
 FC.update({ _id: dbID }, { fc: fc } , err => { // replace exp: expVal with fc: fc
     if(err) return console.log("An error has occurred when updating DB entry!\n\n" + err)
