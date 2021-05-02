@@ -5,8 +5,8 @@ const BansSchema = mongoose.Schema({
             username: String,
             userID: String,
             reason: String,
-            MutedBy: String,
-            MutedByID: String,
+            BannedBy: String,
+            BannedByID: String,
             guildID: String,
             time: String
    });
