@@ -2,7 +2,7 @@ const axios = require('axios');
 const Discord = require('discord.js');
 const { MessageEmbed } = require('discord.js')
 
-module.exports.run =(client, message, args) => {
+module.exports.run =(client, message, args, async) => {
    const url = "https://some-random-api.ml/meme";
 
         let image, response;
