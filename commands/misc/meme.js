@@ -39,8 +39,8 @@ module.exports.run =(client, message, args, async) => {
                     .setURL(`https://reddit.com/${subRedditName}`)
 
                 message.channel.send(textembed)
-            }
-});
+            }});
+})};
 
 module.exports.help = {
    name: "meme",
@@ -50,4 +50,4 @@ module.exports.help = {
    usage: " ",
    cooldown: 6,
    args: false
-}})};     
+};
