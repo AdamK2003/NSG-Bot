@@ -24,7 +24,7 @@ module.exports.run =(client, message, args) => {
             .setDescription(url)
             .setImage(image.link)
 
-        await message.channel.send(embed)
+        message.channel.send(embed)
 };
 
 module.exports.help = {
