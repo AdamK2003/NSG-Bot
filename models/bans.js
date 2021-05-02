@@ -11,4 +11,4 @@ const BansSchema = mongoose.Schema({
             time: String
    });
 
-module.exports = mongoose.model("Bans", mutesSchema);
+module.exports = mongoose.model("Bans", BansSchema);
