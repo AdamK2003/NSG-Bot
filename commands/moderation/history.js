@@ -30,7 +30,7 @@ module.exports.run = async (client, message, args) => {
 
     const embed = new Discord.MessageEmbed()
     .setColor("RANDOM")
-    .setTitle("Punishements of" + rUser.user.tag);
+    .setTitle("Punishements of " + rUser.user.tag);
 
 Bans.find({ userID: rUser.id, guildID: message.guild.id }, (err, arr) => {
    if(arr.length == 0) {
@@ -39,7 +39,7 @@ Bans.find({ userID: rUser.id, guildID: message.guild.id }, (err, arr) => {
       var i;
       for(i = 0; i < arr.length; i++) {
           embed.addField('\u200b', '\u200b')
-          embed.addField("Banned by " + arr[i].BannedBy, "Reason: " + arr[i].reason)
+          embed.addField("**Bans**\nBanned by " + arr[i].BannedBy, "Reason: " + arr[i].reason)
           embed.addFields(
               { name: "Time", value: arr[i].time, inline: true },
               { name: "Ban ID", value: arr[i]._id, inline: true }
@@ -53,7 +53,7 @@ Report.find({ userID: rUser.id, guildID: message.guild.id }, (err, arr) => {
       var i;
       for(i = 0; i < arr.length; i++) {
           embed.addField('\u200b', '\u200b')
-          embed.addField("Warned by " + arr[i].WarnedBy, "Reason: " + arr[i].reason)
+          embed.addField("**Warns**\nWarned by " + arr[i].WarnedBy, "Reason: " + arr[i].reason)
           embed.addFields(
               { name: "Time", value: arr[i].time, inline: true },
               { name: "Warn ID", value: arr[i]._id, inline: true }
@@ -67,7 +67,7 @@ Mutes.find({ userID: rUser.id, guildID: message.guild.id }, (err, arr) => {
       var i;
       for(i = 0; i < arr.length; i++) {
           embed.addField('\u200b', '\u200b')
-          embed.addField("Muted by " + arr[i].BannedBy, "Reason: " + arr[i].reason)
+          embed.addField("**Mutes**\nMuted by " + arr[i].BannedBy, "Reason: " + arr[i].reason)
           embed.addFields(
               { name: "Time", value: arr[i].time, inline: true },
               { name: "Mute ID", value: arr[i]._id, inline: true }
