@@ -27,30 +27,54 @@ module.exports.run = async (client, message, args) => {
     if(!message.member.hasPermission(['MANAGE_MESSAGES'], true, true)) return message.channel.send("Nope!")
     let rUser = message.mentions.members.first();
     if(!rUser) return message.channel.send("Invalid user!")
-Bans.find({ userID: rUser.id, guildID: message.guild.id }, (err, arr) => {
-Report.find({ userID: rUser.id, guildID: message.guild.id }, (err, arr) => {
-Mutes.find({ userID: rUser.id, guildID: message.guild.id }, (err, arr) => {
 
-const embed = new Discord.MessageEmbed()
+    const embed = new Discord.MessageEmbed()
     .setColor("RANDOM")
-    .setTitle("History of " + rUser.user.tag);
+    .setTitle("Punishements of" + rUser.user.tag);
 
-if(arr.length == 0) {
-    embed.addField("Nothing to see here", '\u200b')
-} else {
-    var i;
-    for(i = 0; i < arr.length; i++) {
-        embed.addField('\u200b', '\u200b')
-        embed.addField("Banned by " + arr[i].BannedBy, "Reason: " + arr[i].reason)
-        embed.addField("Muted by " + arr[i].MutedBy, "Reason: " + arr[i].reason)
-        embed.addField("Warned by " + arr[i].WarnedBy, "Reason: " + arr[i].reason)
-        embed.addFields(
-            { name: "Time", value: arr[i].time, inline: true },
-            { name: "ID", value: arr[i]._id, inline: true }
-        )
-    }
-}
-return message.channel.send(embed)
+Bans.find({ userID: rUser.id, guildID: message.guild.id }, (err, arr) => {
+   if(arr.length == 0) {
+      embed.addField("**Bans**\nNothing to see here", '\u200b')
+  } else {
+      var i;
+      for(i = 0; i < arr.length; i++) {
+          embed.addField('\u200b', '\u200b')
+          embed.addField("Banned by " + arr[i].BannedBy, "Reason: " + arr[i].reason)
+          embed.addFields(
+              { name: "Time", value: arr[i].time, inline: true },
+              { name: "Ban ID", value: arr[i]._id, inline: true }
+          )
+      }
+  }
+Report.find({ userID: rUser.id, guildID: message.guild.id }, (err, arr) => {
+   if(arr.length == 0) {
+      embed.addField("**Warns**\nNothing to see here", '\u200b')
+  } else {
+      var i;
+      for(i = 0; i < arr.length; i++) {
+          embed.addField('\u200b', '\u200b')
+          embed.addField("Warned by " + arr[i].WarnedBy, "Reason: " + arr[i].reason)
+          embed.addFields(
+              { name: "Time", value: arr[i].time, inline: true },
+              { name: "Warn ID", value: arr[i]._id, inline: true }
+          )
+      }
+  }
+Mutes.find({ userID: rUser.id, guildID: message.guild.id }, (err, arr) => {
+   if(arr.length == 0) {
+      embed.addField("**Mutes**\nNothing to see here", '\u200b')
+  } else {
+      var i;
+      for(i = 0; i < arr.length; i++) {
+          embed.addField('\u200b', '\u200b')
+          embed.addField("Muted by " + arr[i].BannedBy, "Reason: " + arr[i].reason)
+          embed.addFields(
+              { name: "Time", value: arr[i].time, inline: true },
+              { name: "Mute ID", value: arr[i]._id, inline: true }
+          )
+      }
+  }
+message.channel.send(embed)
 })})})
 return
 }
