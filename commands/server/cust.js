@@ -12,11 +12,11 @@ const FC = require(process.env.ROOTDIR + '/models/custfcs.js')
 const Discord = require('discord.js')
 
 module.exports.help = {
-    name: "fc",
-    aliases: ['fc', 'getfc'],
+    name: "cust",
+    aliases: ['cust', 'custfc'],
     category: 'fc',
-    description: "Check someone's fc",
-    usage: "<mention>",
+    description: "Check someone's custom fc",
+    usage: "<mention> [platform]",
     cooldown: 0,
     args: false
 };

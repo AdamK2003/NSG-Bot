@@ -50,11 +50,11 @@ module.exports.run = (client, message, args) => {
 }
 
 module.exports.help = {
-    name: "addfc",
-    aliases: ['addfc', 'setfc'],
+    name: "addcust",
+    aliases: ['addcust', 'addcustfc'],
     category: 'fc',
-    description: "Set the friend code of message author",
-    usage: "<fc here>",
+    description: "Set the friend code of message author for platform",
+    usage: "<platform> <fc>",
     cooldown: 6,
     args: true
 };
